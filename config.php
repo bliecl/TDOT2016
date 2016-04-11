@@ -3,10 +3,10 @@
 return array(
 
     'database' => array(
-        'host'     => 'localhost',
-        'username' => 'root',
-        'password' => '',
-        'database' => '',
+        'host'     => 'bwaltm.dev.bbc-projects.ch/phpmyadmin',
+        'username' => 'bwaltmsql1',
+        'password' => 'xrauVkiPmd',
+        'database' => 'bwaltmsql1',
     ),
 
 );
