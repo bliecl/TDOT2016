@@ -5,25 +5,28 @@ body{
 }
 
 p{
-	font-size: 35px;
+	font-size: 45px;
 	font-weight: bold;
 }
 
 #container {
-	width:1000px;
+	width:1800px;
 	margin: 0 auto;
 }
 
 #bright_side{
 	float:left;
-	width:500px;
+	width:818px;
 	text-align: center;
+	border-right: 3px solid green;
+	padding-left: 80px;
 }
 
 #dark_side{
 	float:right;
-	width:500px;
+	width:819px;
 	text-align: center;
+	padding-right: 80px;
 }
 
 #header{
@@ -31,11 +34,11 @@ p{
 }
 
 #bright_side_statistic{
-	height: 200px;
+	height: 300px;
 }
 
 #dark_side_statistic{
-	height: 200px;
+	height: 300px;
 }
 
 .blue{
@@ -47,7 +50,11 @@ p{
 }
 
 .big{
-	font-size: 40px;
+	font-size: 60px;
+}
+
+.middle{
+	font-size: 50px;
 }
 
 .grey{
