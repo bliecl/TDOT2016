@@ -2,9 +2,9 @@
 
 require_once('lib/Model.php');
 
-class UserModel extends Model
+class PointModel extends Model
 {
-    protected $tableName = 'User';
+    protected $tableName = 'Game';
 
     public function create($firstName, $lastName, $email, $password)
     {
