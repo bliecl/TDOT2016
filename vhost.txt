@@ -1,0 +1,18 @@
+<VirtualHost 127.0.0.1>
+    ServerName www.mvc.local
+    ServerAlias mvc.local
+    AddType text/html .shtml
+    AddHandler server-parsed .shtml
+    ServerAdmin webmaster@mvc.local
+    DocumentRoot "d:/dev/web/mvc"
+
+    <Directory "d:/dev/web/mvc">
+        Options Indexes FollowSymLinks
+        Options +Includes
+        AllowOverride All
+        Order allow,deny
+        Require all granted
+        Allow from All
+        DirectoryIndex index.php
+    </Directory>
+</VirtualHost>

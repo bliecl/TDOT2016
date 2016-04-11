@@ -1,0 +1,59 @@
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td { margin:0; padding:0; }
+table { border-collapse:collapse; border-spacing:0; }
+fieldset,img {	border:0; }
+address,caption,cite,code,dfn,em,strong,th,var { font-style:normal; font-weight:normal; }
+ol,ul { list-style:none; }
+caption,th { text-align:left; }
+h1,h2,h3,h4,h5,h6 { font-size:100%; font-weight:normal; }
+abbr,acronym {	border:0; }
+strong { font-weight: bold; }
+em { font-style: italic; }
+
+.unicon { font-family: 'Arial Unicode MS', 'Arial Unicode', 'Arial'; }
+.clearfix:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
+
+body { background: #eee; }
+
+#wrapper { width: 100%; min-width: 960px; background: #fff url('images/header.png') repeat-x; }
+
+header { display: block; position: relative; height: 105px; padding: 105px 0 0 0; width: 940px; margin: 0 auto 30px auto; border-bottom: 1px dashed #ddd; }
+header #logo { position: absolute; left: -5px; top: 100px; }
+header h1 { display: block; position: absolute; left: 85px; top: 107px; width: 450px; height: 80px; padding: 14px 8px; font-family: Helvetica, Arial, sans-serif; font-size: 34px; font-weight: bold; color: #919495; text-shadow: 1px 1px 2px #fff;}
+
+nav { display: block; position: absolute; left: 0; top: 14px; width: 940px; }
+nav li { float: left; display: block; height: 24px; }
+nav li.border { width: 1px; border-right: 1px solid #fff; background: #b9bcbd; margin: 0 10px; }
+nav a { display: block; line-height: 16px;  padding: 4px 8px; margin: 0 2px; font-family: Helvetica, Arial, sans-serif; font-size: 14px; font-weight: bold; color: #919495; text-shadow: 1px 1px 2px #fff; text-decoration: none; }
+nav a:hover { color: #63b64f; }
+nav li.small a { font-size: 12px; }
+nav .selected a { color: #fff; text-shadow: 1px 1px 2px #797b7c;
+	background-color: #b9bcbd;
+	background: -webkit-gradient(linear, left bottom, left top, color-stop(1, rgb(186,189,190)), color-stop(0, rgb(199,201,202)));
+	background: -moz-linear-gradient(center bottom, rgb(186,189,190) 100%, rgb(199,201,202) 0%);
+	-moz-box-shadow: inset 1px 1px 2px #9da0a1;
+	border-radius: 10px; -webkit-border-radius: 10px; -moz-border-radius: 10px; }
+
+p a { color: #63b64f; border-bottom: 1px solid #9aee84; text-decoration: none; }
+p a:hover { border-bottom: none; }
+
+#bookmarks { z-index: 1; position: relative; width: 960px; margin: 0 auto; padding: 0 0 40px 0; }
+#bookmarks article { display: block; position: relative; width: 940px; height: 360px; padding: 0 10px; margin: 0 0 30px 0; overflow: hidden; }
+#bookmarks article .dhs { position: absolute; top: 0; right: 10px; width: 640px; height: 360px; }
+#bookmarks article .dhd { display: block; width: 270px; float: left; }
+#bookmarks article .dhd .title { color: #797b7c; font-size: 24px; line-height: 28px; font-family: 'Droid Serif', Georgia, sans-serif; font-weight: bold; margin: 0 0 10px 0; }
+#bookmarks article .dhd p { margin: 0 0 10px 0; color: #797b7c; font-size: 14px; line-height: 19px; font-family: 'Droid Serif', Georgia, sans-serif; font-weight: normal; }
+#bookmarks article .dhd p .unicon { font-size: 22px; position: relative; top: 4px; left: 2px; }
+
+.dhform { margin: 0 0 15px 0; }
+.dhform label { margin: 0 0 5px 0; display: block; width: 150px;  color: #797b7c; font-size: 12px; line-height: 28px; outline: none; font-family: 'Droid Serif', Georgia, sans-serif; font-weight: bold; }
+.dhform .field, .dhform textarea { margin: 0 0 10px 0; width: 180px; float: left; color: #797b7c; font-size: 12px; border: 1px solid #797b7c; font-family: Helvetica, Arial, sans-serif; padding: 5px; background: #f7f7f7; outline: none; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; }
+.dhform .field:focus, .dhform textarea:focus { border: 2px solid #7cd564; padding: 4px; background: #fff; }
+.dhform .submit { cursor: pointer; margin-left: 150px; border: none; outline: none; background-color: #7cd564; color: #fff; font-size: 12px; font-weight: bold; text-shadow: 1px 1px 2px #006400; font-family: Helvetica, Arial, sans-serif; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; padding: 5px 20px;
+	background: -webkit-gradient(linear, left bottom, left top, color-stop(0, rgb(124,213,100)), color-stop(1, rgb(153,237,131))); -moz-linear-gradient( center bottom, rgb(124,213,100) 0%, rgb(153,237,131) 100%); }
+.dhform input[type="checkbox"] { margin: 0 5px 0 0; line-height: 28px; }
+p.error { color: #e52828 !important; font-size: 12px !important; }
+p.success { color: #63B64F !important; }
+
+footer { display: block; width: 940px; padding: 20px 10px 20px 10px; margin: 0 auto; background: #eee; }
+footer p { color: #b3b7b8; font-size: 12px; font-family: Helvetica, Arial, sans-serif; }
+footer p a { color: #b3b7b8; text-decoration: none; border: none; }
