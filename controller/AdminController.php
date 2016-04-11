@@ -10,7 +10,13 @@ class AdminController
 
 	public function index()
 	{
-		$view = new View('default_index');
+		$view = new View('login');
+		$view->display();
+	}
+
+	public function register()
+	{
+		$view = new View('register');
 		$view->display();
 	}
 
