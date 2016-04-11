@@ -20,6 +20,18 @@ class AdminController
 		$view->display();
 	}
 
+	public function addPoints()
+	{
+		$view = new View('addPoints');
+		$view->display();
+	}
+
+	public function pointsTable()
+	{
+		$view = new View('pointsTable');
+		$view->display();
+	}
+
 	public function __destruct()
 	{
 		$view = new View('adminFooter');

@@ -18,3 +18,37 @@
   </head>
 
   <body>
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <!-- Title -->
+      <span class="mdl-layout-title"><?php echo $title?></span>
+      <!-- Add spacer, to align navigation to the right -->
+      <div class="mdl-layout-spacer"></div>
+      <!-- Navigation. We hide it in small screens. -->
+      <nav class="mdl-navigation mdl-layout--large-screen-only">
+        <?php
+          $registerLink = '<a class="mdl-navigation__link" href="/admin/register">Register</a>';
+          $addPointsLink = '<a class="mdl-navigation__link" href="/admin/addPoints">Punkte Hinzufügen</a>';
+          $pointsTableLink = '<a class="mdl-navigation__link" href="/admin/pointsTable">Punkte Tabelle</a>';
+
+          $requested = $_SERVER['REQUEST_URI'];
+          if ($requested=="/admin/addPoints"){
+            echo $pointsTableLink;
+            echo $registerLink;
+          }
+          else if ($requested=="/admin/pointsTable"){
+            echo $addPointsLink;
+            echo $registerLink;
+          }
+          else if ($requested=="/admin/register"){
+            echo $addPointsLink;
+            echo $pointsTableLink;
+          }
+          echo '<a class="mdl-navigation__link" href="#">Logout</a>';
+          ?>
+      </nav>
+    </div>
+  </header>
+  <main class="mdl-layout__content">
+    <div class="page-content">
