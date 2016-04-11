@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-blue.min.css" type="text/css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" type="text/css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:700,400,300" type="text/css" />
+    <link href="view/css/style.css" rel="stylesheet" />
   </head>
 
   <body>
