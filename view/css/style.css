@@ -5,8 +5,13 @@ body{
 }
 
 p{
-	font-size: 45px;
 	font-weight: bold;
+}
+
+h1{
+	font-weight: bold;
+	margin-bottom: 100px;
+	text-decoration: underline;
 }
 
 #container {
@@ -16,29 +21,57 @@ p{
 
 #bright_side{
 	float:left;
-	width:818px;
-	text-align: center;
+	width:897px;
 	border-right: 3px solid green;
-	padding-left: 80px;
 }
 
 #dark_side{
 	float:right;
-	width:819px;
-	text-align: center;
-	padding-right: 80px;
+	width:900px;
 }
 
-#header{
+#bright_header{
+	float: right;
 	height: 200px;
+	padding-right: 70px;
+}
+
+#dark_header{
+	height: 200px;
+	float: left;
+	padding-left: 70px;
 }
 
 #bright_side_statistic{
-	height: 300px;
+	height: 550px;
 }
 
 #dark_side_statistic{
-	height: 300px;
+	height: 550px;
+}
+
+#bright_counter{
+	float: right;
+	padding-right: 70px;
+}
+
+#dark_counter{
+	float: left;
+	padding-left: 70px;
+}
+
+#bright_image{
+	float: left;
+	padding-top: 70px;
+	padding-left: 100px;
+	height: 450px;
+}
+
+#dark_image{
+	float: right;
+	padding-right: 100px;
+	padding-top: 70px;
+	height: 450px;
 }
 
 .blue{
