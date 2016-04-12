@@ -13,30 +13,19 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td class="mdl-data-table__cell--non-numeric">Testuser</td>
-          <td class="mdl-data-table__cell--non-numeric">Dark</td>
-          <td>50</td>
-          <td>12-30-10-23-13</td>
-          <td>X</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td class="mdl-data-table__cell--non-numeric">Ordis</td>
-          <td class="mdl-data-table__cell--non-numeric">Bright</td>
-          <td>120</td>
-          <td>12-30-10-23-13</td>
-          <td>X</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td class="mdl-data-table__cell--non-numeric">gibbix</td>
-          <td class="mdl-data-table__cell--non-numeric">Dark</td>
-          <td>23</td>
-          <td>12-30-10-23-13</td>
-          <td>X</td>
-        </tr>
+        <?php
+          require_once('/model/PointModel.php');
+          $pointModel = new PointModel();
+          $list = $pointModel->getPointsList();
+          foreach ($list as $row) {
+            echo '<tr>';
+            foreach ($row as $key =>$value){
+              echo '<td>'.$value.'</td>';
+            }
+            echo '<td>X</td>';
+            echo'</tr>';
+          }
+        ?>
       </tbody>
     </table>
   </div>
