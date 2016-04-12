@@ -13,30 +13,27 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td class="mdl-data-table__cell--non-numeric">Testuser</td>
-          <td class="mdl-data-table__cell--non-numeric">Dark</td>
-          <td>50</td>
-          <td>12-30-10-23-13</td>
-          <td>X</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td class="mdl-data-table__cell--non-numeric">Ordis</td>
-          <td class="mdl-data-table__cell--non-numeric">Bright</td>
-          <td>120</td>
-          <td>12-30-10-23-13</td>
-          <td>X</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td class="mdl-data-table__cell--non-numeric">gibbix</td>
-          <td class="mdl-data-table__cell--non-numeric">Dark</td>
-          <td>23</td>
-          <td>12-30-10-23-13</td>
-          <td>X</td>
-        </tr>
+        <?php
+          require_once('/model/PointModel.php');
+          $pointModel = new PointModel();
+          $list = $pointModel->getPointsList();
+          foreach ($list as $row) {
+            $id = $row["id"];
+            echo '<tr id="row'.$id.'">';
+            echo '<td>'.$id.'</td>';
+            echo '<td>'.$row["username"].'</td>';
+            echo '<td>'.$row["side"].'</td>';
+            echo '<td>'.$row["points"].'</td>';
+            echo '<td>'.$row["currentTime"].'</td>';
+            echo '<td><form method="post" action="/admin/deletePoints/'.$id.'"><button id="delete'.$id.'" type="submit" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored deleteButton">
+              <i class="material-icons">delete</i>
+              </button></td>';
+            echo'<script>document.getElementById("delete'.$id.'").addEventListener("click", function(){
+            });</script>';
+            //TODO: Implement EventListener to stay on page and remove row
+            echo'</tr>';
+          }
+        ?>
       </tbody>
     </table>
   </div>

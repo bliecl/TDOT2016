@@ -1,5 +1,6 @@
 <?php
-require_once("/model/UserModel.php");
+require_once('/model/UserModel.php');
+require_once('/model/PointModel.php');
 
 class AdminController
 {
@@ -20,6 +21,26 @@ class AdminController
 		$view = new View('register');
 		$view->display();
 	}
+
+	public function pointsTable(){
+		$view = new View('pointsTable');
+		$view->display();
+	}
+
+	public function addPoints(){
+		$view = new View('addPoints');
+		$view->display();
+	}
+
+	public function deletePoints($id){
+		//TODO:: check if user is logged in
+		$pointModel = new PointModel();
+		if ($pointModel->doesGameRowExist($id)){
+			$pointModel->deletePointRow($id);
+		}
+	}
+
+
 
 	public function registerAction()
 	{
@@ -89,6 +110,34 @@ class AdminController
 				$view->display();
 			}
 	}
+
+	public function login(){
+			$view = new View('login');
+			$view->display();
+
+			if (isset($_POST ["username"]))
+			{
+				$username = $_POST ["username"];
+				$password = $_POST ["password"];
+				$model = new UserModel();
+				$result = $model->getByUserAndPass($username, $password);
+				if ($result->num_rows == 1)
+				{
+					$row = $result->fetch_object();
+					$_SESSION ['username'] = $row->name;
+					$_SESSION ['loggedin'] = true;
+
+					echo 'login succesfull';
+
+				}
+
+				else
+				{
+					echo 'fehelr';
+				}
+			}
+			$view->display();
+		}
 
 	public function __destruct()
 	{

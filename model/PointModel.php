@@ -19,4 +19,49 @@ class PointModel extends Model
             throw new Exception($statement->error);
         }
     }
+
+    public function getPointsList($limit=50){
+      $query = "SELECT g.id,username,points,side,currentTime FROM game AS g JOIN user AS u ON g.user_id=u.id JOIN side AS s ON g.side_id=s.id ORDER BY currentTime DESC LIMIT ".$limit;
+      $rows = array();
+      $statement = ConnectionHandler::getConnection()->prepare($query);
+      if ($statement->execute()) {
+        $result = $statement->get_result();
+        while ($row = $result->fetch_object()) {
+         $found = array(
+             "id" => $row->id,
+             "username" => $row->username,
+             "side" => $row->side,
+             "points" => $row->points,
+             "currentTime" => $row->currentTime
+         );
+         $rows[] = $found;
+        }
+      }
+      return $rows;
+    }
+
+    public function deletePointRow($id){
+      $query = "DELETE FROM game WHERE id=?";
+      $statement = ConnectionHandler::getConnection()->prepare($query);
+      $statement->bind_param('i', $id);
+
+      if (!$statement->execute()) {
+          throw new Exception($statement->error);
+      }
+    }
+
+    public function doesGameRowExist($id){
+      $query = "SELECT COUNT(*) AS `exists` FROM game WHERE id=?";
+      $statement = ConnectionHandler::getConnection()->prepare($query);
+      $statement->bind_param('i', $id);
+
+      if (!$statement->execute()) {
+          throw new Exception($statement->error);
+      }else{
+        if($statement->get_result()->fetch_object()->exists >0){
+          return true;
+        }
+      }
+      return false;
+    }
 }

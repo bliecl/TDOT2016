@@ -3,9 +3,9 @@
 return array(
 
     'database' => array(
-        'host'     => '172.16.2.56',
-        'username' => 'admin',
-        'password' => 'adminPW',
+        'host'     => 'localhost',
+        'username' => 'root',
+        'password' => '',
         'database' => 'bwaltmsql1',
     ),
 

@@ -21,4 +21,14 @@ class UserModel extends Model
             throw new Exception($statement->error);
         }
     }
+
+    public function getByUserAndPass($username, $password)
+  {
+    $password = sha1($password);
+    $query = "SELECT id, name from  $this->tableName where name = ? and password = ?";
+    $statement = ConnectionHandler::getConnection()->prepare($query);
+    $statement->bind_param('ss', $username, $password);
+    $statement->execute();
+    return $statement->get_result();
+  }
 }
