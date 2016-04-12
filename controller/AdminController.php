@@ -74,6 +74,34 @@ class AdminController
 		}
 	}
 
+	public function login(){
+			$view = new View('login');
+			$view->display();
+
+			if (isset($_POST ["username"]))
+			{
+				$username = $_POST ["username"];
+				$password = $_POST ["password"];
+				$model = new UserModel();
+				$result = $model->getByUserAndPass($username, $password);
+				if ($result->num_rows == 1)
+				{
+					$row = $result->fetch_object();
+					$_SESSION ['username'] = $row->name;
+					$_SESSION ['loggedin'] = true;
+
+
+
+				}
+
+				else
+				{
+					echo 'fehelr';
+				}
+			}
+			$view->display();
+		}
+
 	public function __destruct()
 	{
 		$view = new View('adminFooter');
