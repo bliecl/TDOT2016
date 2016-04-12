@@ -26,7 +26,7 @@ class AdminController
 		$check = false;
 
 		if (empty($_POST ['password'])) {
-			echo "Passwort wird bennötigt! ";
+			$this->fail("register", "Passwort wird bennötigt! ");
 			$check1 = false;
 		}else{
 			$password = htmlspecialchars($_POST ['password']);
@@ -34,7 +34,7 @@ class AdminController
 		}
 
 		if (empty($_POST ['repeatpassword'])) {
-			echo "Passwort wird bennötigt! ";
+			$this->fail("register", "Passwort wiederholen! ");
 			$check2 = false;
 		}else{
 			$password2 = htmlspecialchars($_POST ['repeatpassword']);
@@ -42,7 +42,7 @@ class AdminController
 		}
 
 		if (empty($_POST ['name'])) {
-			echo "Name wird bennötigt!  ";
+			$this->fail("register", "Name wird bennötigt!  ");
 			$check3 = false;
 		}else{
 			$name = htmlspecialchars($_POST ['name']);
@@ -50,7 +50,7 @@ class AdminController
 		}
 
 		if (empty($_POST ['prename'])) {
-			echo "Vorname wird bennötigt! ";
+			$this->fail("register", "Vorname wird bennötigt! ");
 			$check4 = false;
 		}else{
 			$prename = htmlspecialchars($_POST ['prename']);
@@ -58,20 +58,36 @@ class AdminController
 		}
 
 		if (empty($_POST ['username'])) {
-			echo "Username wird bennötigt! ";
+			$this->fail("register", "Username wird bennötigt! ");
 			$check5 = false;
 		}else{
 			$username = htmlspecialchars($_POST ['username']);
 			$check5 = true;
 		}
 
-		if($password == $password2 && $check1 && $check2 && $check3 && $check4 && $check5) {
-			$userModel = new UserModel();
-			$user = $userModel->create($prename,$name,$username,$password);
-			header ( 'location: /admin/register' );
+		$userModel = new UserModel();
+		$users = $userModel->getUser($username);
+		if($users != null) {
+			$this->fail("register", "User existiert bereits! ");
 		} else {
-				echo "Passwörter stimmen nicht überein! ";
+			if($password == $password2 && $check1 && $check2 && $check3 && $check4 && $check5) {
+				$userModel = new UserModel();
+				$user = $userModel->create($prename,$name,$username,$password);
+				header ( 'location: /admin/register' );
+			} else {
+				$this->fail("register", "Passwörter stimmen nicht überein! ");
+			}
 		}
+	}
+
+	public function fail($seite, $fehlermeldung)
+	{
+			if($seite == "register") {
+				$view = new View('register');
+				$view->fail = true;
+				$view->failText = $fehlermeldung;
+				$view->display();
+			}
 	}
 
 	public function __destruct()
