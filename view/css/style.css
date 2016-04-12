@@ -2,6 +2,10 @@
 
 body{
 	background-image: url("http://einladung.berufsbildungscenter.ch/images/mainimage.jpg");
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+  background-size: cover;
 }
 
 h2{
