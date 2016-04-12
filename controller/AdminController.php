@@ -68,8 +68,7 @@ class AdminController
 		if($password == $password2 && $check1 && $check2 && $check3 && $check4 && $check5) {
 			$userModel = new UserModel();
 			$user = $userModel->create($prename,$name,$username,$password);
-			$view = new View('register');
-			$view->display();
+			header ( 'location: /admin/register' );
 		} else {
 				echo "Passwörter stimmen nicht überein! ";
 		}
