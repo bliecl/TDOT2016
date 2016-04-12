@@ -3,3 +3,11 @@
 .class {
   margin: 0, auto;
 }
+
+.mdl-radio{
+  margin-bottom: 35px;
+}
+
+#pointsInput{
+  margin: 30px 0 30px 0;
+}
