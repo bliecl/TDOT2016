@@ -1,11 +1,12 @@
 @CHARSET "ISO-8859-1";
 
 body{
-	background-image: url("https://pixabay.com/static/uploads/photo/2014/06/16/23/39/black-370118_960_720.png");
+	background-image: url("http://einladung.berufsbildungscenter.ch/images/mainimage.jpg");
 }
 
-p{
+h2{
 	font-weight: bold;
+	color: white;
 }
 
 h1{
@@ -22,7 +23,7 @@ h1{
 #bright_side{
 	float:left;
 	width:897px;
-	border-right: 3px solid green;
+	border-right: 3px solid white;
 }
 
 #dark_side{
@@ -33,13 +34,13 @@ h1{
 #bright_header{
 	float: right;
 	height: 200px;
-	padding-right: 70px;
+	padding-right: 150px;
 }
 
 #dark_header{
 	height: 200px;
 	float: left;
-	padding-left: 70px;
+	padding-left: 150px;
 }
 
 #bright_side_statistic{
@@ -52,34 +53,12 @@ h1{
 
 #bright_counter{
 	float: right;
-	padding-right: 70px;
+	padding-right: 120px;
 }
 
 #dark_counter{
 	float: left;
-	padding-left: 70px;
-}
-
-#bright_image{
-	float: left;
-	padding-top: 70px;
-	padding-left: 100px;
-	height: 450px;
-}
-
-#dark_image{
-	float: right;
-	padding-right: 100px;
-	padding-top: 70px;
-	height: 450px;
-}
-
-.blue{
-	color:blue;
-}
-
-.red{
-	color:red;
+	padding-left: 120px;
 }
 
 .big{
