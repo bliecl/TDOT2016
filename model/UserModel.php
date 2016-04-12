@@ -6,14 +6,16 @@ class UserModel extends Model
 {
     protected $tableName = 'User';
 
-    public function create($firstName, $lastName, $email, $password)
+    public function create($firstName, $lastName, $username, $password)
     {
         $password = sha1($password);
 
-        $query = "INSERT INTO $this->tableName (firstName, lastName, email, password) VALUES (?, ?, ?, ?)";
+        $query = "INSERT INTO $this->tableName (`prename`, `name`, `username`, `password`, `locked`) VALUES (?,?,?,?,?)";
+
+        $locked = false;
 
         $statement = ConnectionHandler::getConnection()->prepare($query);
-        $statement->bind_param('ssss', $firstName, $lastName, $email, $password);
+        $statement->bind_param ('sssss', $firstName, $lastName, $username, $password, $locked);
 
         if (!$statement->execute()) {
             throw new Exception($statement->error);

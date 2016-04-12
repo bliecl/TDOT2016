@@ -3,3 +3,11 @@
 .class {
   margin: 0, auto;
 }
+
+.mdl-textfield__input {
+  border-bottom: 1px solid rgba(0, 0, 0, .45) !important;
+}
+
+.mdl-textfield__label {
+  color: rgba(0,0,0,0.45);
+}
