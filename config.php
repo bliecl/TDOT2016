@@ -3,9 +3,9 @@
 return array(
 
     'database' => array(
-        'host'     => 'bwaltm.dev.bbc-projects.ch',
-        'username' => 'bwaltmsql1',
-        'password' => 'xrauVkiPmd',
+        'host'     => '172.16.2.56',
+        'username' => 'root',
+        'password' => '',
         'database' => 'bwaltmsql1',
     ),
 
