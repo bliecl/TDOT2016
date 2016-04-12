@@ -22,10 +22,19 @@ class UserModel extends Model
         }
     }
 
+    public function getUser($username)
+    {
+      $query = "SELECT id from $this->tableName where username = ?";
+      $statement = ConnectionHandler::getConnection()->prepare($query);
+      $statement->bind_param('s', $username);
+      $statement->execute();
+      return $statement->get_result();
+    }
+
     public function getByUserAndPass($username, $password)
   {
     $password = sha1($password);
-    $query = "SELECT id, name from  $this->tableName where name = ? and password = ?";
+    $query = "SELECT id, username from $this->tableName where username = ? and password = ?";
     $statement = ConnectionHandler::getConnection()->prepare($query);
     $statement->bind_param('ss', $username, $password);
     $statement->execute();

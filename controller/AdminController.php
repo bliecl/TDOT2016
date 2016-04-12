@@ -88,7 +88,7 @@ class AdminController
 
 		$userModel = new UserModel();
 		$users = $userModel->getUser($username);
-		if($users != null) {
+		if($users->id != null) {
 			$this->fail("register", "User existiert bereits! ");
 		} else {
 			if($password == $password2 && $check1 && $check2 && $check3 && $check4 && $check5) {
@@ -103,41 +103,42 @@ class AdminController
 
 	public function fail($seite, $fehlermeldung)
 	{
-			if($seite == "register") {
-				$view = new View('register');
-				$view->fail = true;
-				$view->failText = $fehlermeldung;
-				$view->display();
-			}
+		if($seite == "register") {
+			$view = new View('register');
+			$view->fail = true;
+			$view->failText = $fehlermeldung;
+			$view->display();
+		} else {
+			$view = new View('login');
+			$view->fail = true;
+			$view->failText = $fehlermeldung;
+			$view->display();
+		}
 	}
 
 	public function login(){
-			$view = new View('login');
-			$view->display();
+		$view = new View('login');
+		$view->display();
 
-			if (isset($_POST ["username"]))
+		if (isset($_POST ["username"]))
+		{
+			$username = $_POST ["username"];
+			$password = $_POST ["password"];
+			$model = new UserModel();
+			$result = $model->getByUserAndPass($username, $password);
+			if ($result->num_rows == 1)
 			{
-				$username = $_POST ["username"];
-				$password = $_POST ["password"];
-				$model = new UserModel();
-				$result = $model->getByUserAndPass($username, $password);
-				if ($result->num_rows == 1)
-				{
-					$row = $result->fetch_object();
-					$_SESSION ['username'] = $row->name;
-					$_SESSION ['loggedin'] = true;
+				$row = $result->fetch_object();
+				$_SESSION ['username'] = $row->username;
+				$_SESSION ['loggedin'] = true;
+				echo 'login succesfull';
 
-					echo 'login succesfull';
-
-				}
-
-				else
-				{
-					echo 'fehelr';
-				}
+			} else {
+				$this->fail("login", "Fehler beim Anmelden");
 			}
-			$view->display();
 		}
+		$view->display();
+	}
 
 	public function __destruct()
 	{
