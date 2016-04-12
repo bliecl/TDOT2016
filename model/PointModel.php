@@ -30,8 +30,8 @@ class PointModel extends Model
          $found = array(
              "id" => $row->id,
              "username" => $row->username,
-             "points" => $row->points,
              "side" => $row->side,
+             "points" => $row->points,
              "currentTime" => $row->currentTime
          );
          $rows[] = $found;
