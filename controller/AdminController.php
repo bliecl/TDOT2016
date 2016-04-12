@@ -90,7 +90,7 @@ class AdminController
 					$_SESSION ['username'] = $row->name;
 					$_SESSION ['loggedin'] = true;
 
-
+					echo 'login succesfull';
 
 				}
 
