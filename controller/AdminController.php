@@ -1,5 +1,6 @@
 <?php
-require_once("/model/UserModel.php");
+require_once('/model/UserModel.php');
+require_once('/model/PointModel.php');
 
 class AdminController
 {
@@ -29,6 +30,14 @@ class AdminController
 	public function addPoints(){
 		$view = new View('addPoints');
 		$view->display();
+	}
+
+	public function deletePoints($id){
+		//TODO:: check if user is logged in
+		$pointModel = new PointModel();
+		if ($pointModel->doesGameRowExist($id)){
+			$pointModel->deletePointRow($id);
+		}
 	}
 
 

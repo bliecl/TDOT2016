@@ -19,3 +19,9 @@
 #pointsInput{
   margin: 30px 0 30px 0;
 }
+
+.deleteButton{
+  height: 35px;
+  min-width: 30px;
+  width: 35px;
+}

@@ -39,4 +39,29 @@ class PointModel extends Model
       }
       return $rows;
     }
+
+    public function deletePointRow($id){
+      $query = "DELETE FROM game WHERE id=?";
+      $statement = ConnectionHandler::getConnection()->prepare($query);
+      $statement->bind_param('i', $id);
+
+      if (!$statement->execute()) {
+          throw new Exception($statement->error);
+      }
+    }
+
+    public function doesGameRowExist($id){
+      $query = "SELECT COUNT(*) AS `exists` FROM game WHERE id=?";
+      $statement = ConnectionHandler::getConnection()->prepare($query);
+      $statement->bind_param('i', $id);
+
+      if (!$statement->execute()) {
+          throw new Exception($statement->error);
+      }else{
+        if($statement->get_result()->fetch_object()->exists >0){
+          return true;
+        }
+      }
+      return false;
+    }
 }
