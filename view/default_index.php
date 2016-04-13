@@ -60,3 +60,19 @@
 		</div>
 	</div>
 </div>
+
+<script>
+	$(document).ready(function(){
+		setInterval(function(){
+			$.getJSON("/stats/getCurrentStats").success(function (data) {
+				var bright = data["bright"];
+				var dark = data["dark"];
+				$("#bright_counter").html(bright + " Punkte");
+				$("#dark_counter").html(dark + " Punkte");
+			});
+		},1000);
+
+
+	});
+
+</script>
