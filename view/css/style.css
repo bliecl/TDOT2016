@@ -20,49 +20,55 @@ h1{
 }
 
 #container {
-	width:1800px;
+	width:93.75%;
 	margin: 0 auto;
 }
 
 #bright_side{
 	float:left;
-	width:400px;
+	width:20.83%;
 	border-right: 3px solid white;
-	margin-left: 497px;
+	margin-left: 27%;
+	height:90%
 }
 
 #dark_side{
 	float:right;
-	width:400px;
-	margin-right: 500px;
+	width:20.83%;
+	margin-right: 26%;
+	height:90%
 }
 
 #bright_header{
 	float: right;
-	padding-right: 150px;
+	padding-right: 7.8%;
 }
 
 #dark_header{
 	float: left;
-	padding-left: 150px;
+	padding-left: 7.8%;
 }
 
 #bright_side_statistic{
-	height: 550px;
+	height: 50vh;
+	float: left;
+	padding-left: 40%;
 }
 
 #dark_side_statistic{
-	height: 550px;
+	height: 50vh;
+	float: right;
+	padding-right: 40%;
 }
 
 #bright_counter{
 	float: right;
-	padding-right: 120px;
+	padding-right: 6.25%;
 }
 
 #dark_counter{
 	float: left;
-	padding-left: 120px;
+	padding-left: 6.25%;
 }
 
 .big{
@@ -81,444 +87,6 @@ h1{
 	text-align: center;
 }
 <<<<<<< HEAD
-
-/*------------------------------------------------------------------*/
-
-@media screen and (min-device-width: 1824px){
-	
-body{
-	background-image: url("http://einladung.berufsbildungscenter.ch/images/mainimage.jpg");
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-  background-size: cover;
-}
-
-h2{
-	font-weight: bold;
-	color: white;
-}
-
-h1{
-	font-weight: bold;
-	margin-bottom: 100px;
-	text-decoration: underline;
-}
-
-#container {
-	width:1800px;
-	margin: 0 auto;
-}
-
-#bright_side{
-	float:left;
-	width:400px;
-	border-right: 3px solid white;
-	margin-left: 497px;
-}
-
-#dark_side{
-	float:right;
-	width:400px;
-	margin-right: 500px;
-}
-
-#bright_header{
-	float: right;
-	height: 200px;
-	padding-right: 150px;
-}
-
-#dark_header{
-	height: 200px;
-	float: left;
-	padding-left: 150px;
-}
-
-#bright_side_statistic{
-	height: 550px;
-}
-
-#dark_side_statistic{
-	height: 550px;
-}
-
-#bright_counter{
-	float: right;
-	padding-right: 120px;
-}
-
-#dark_counter{
-	float: left;
-	padding-left: 120px;
-}
-
-.big{
-	font-size: 60px;
-}
-
-.middle{
-	font-size: 50px;
-}
-
-.grey{
-	color :grey;
-}
-
-.center{
-	text-align: center;
-}
-}
-
-/*-----------------------------------------------------------------*/
-
-@media screen and (min-device-width: 1481px)
-and (max-device-width: 1823px){
-	body{
-	background-image: url("http://einladung.berufsbildungscenter.ch/images/mainimage.jpg");
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-  background-size: cover;
-}
-
-h2{
-	font-weight: bold;
-	color: white;
-}
-
-h1{
-	font-weight: bold;
-	margin-bottom: 100px;
-	text-decoration: underline;
-}
-
-#container {
-	width:1481px;
-	margin: 0 auto;
-}
-
-#bright_side{
-	float:left;
-	width:400px;
-	border-right: 3px solid white;
-	margin-left: 337px;
-}
-
-#dark_side{
-	float:right;
-	width:400px;
-	margin-right: 339px;
-}
-
-#bright_header{
-	float: right;
-	height: 200px;
-	padding-right: 150px;
-}
-
-#dark_header{
-	height: 200px;
-	float: left;
-	padding-left: 150px;
-}
-
-#bright_side_statistic{
-	height: 550px;
-}
-
-#dark_side_statistic{
-	height: 550px;
-}
-
-#bright_counter{
-	float: right;
-	padding-right: 120px;
-}
-
-#dark_counter{
-	float: left;
-	padding-left: 120px;
-}
-
-.big{
-	font-size: 60px;
-}
-
-.middle{
-	font-size: 50px;
-}
-
-.grey{
-	color :grey;
-}
-
-.center{
-	text-align: center;
-}
-}
-
-/*----------------------------------------------------------------*/
-
-@media screen and (min-device-width: 1224px) and (max-device-width: 1480px){
-	body{
-	background-image: url("http://einladung.berufsbildungscenter.ch/images/mainimage.jpg");
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-  background-size: cover;
-}
-
-h2{
-	font-weight: bold;
-	color: white;
-}
-
-h1{
-	font-weight: bold;
-	margin-bottom: 100px;
-	text-decoration: underline;
-}
-
-#container {
-	width:1224px;
-	margin: 0 auto;
-}
-
-#bright_side{
-	float:left;
-	width:400px;
-	border-right: 3px solid white;
-	margin-left: 210px;
-}
-
-#dark_side{
-	float:right;
-	width:400px;
-	margin-right: 210px;
-}
-
-#bright_header{
-	float: right;
-	height: 200px;
-	padding-right: 150px;
-}
-
-#dark_header{
-	height: 200px;
-	float: left;
-	padding-left: 150px;
-}
-
-#bright_side_statistic{
-	height: 550px;
-}
-
-#dark_side_statistic{
-	height: 550px;
-}
-
-#bright_counter{
-	float: right;
-	padding-right: 120px;
-}
-
-#dark_counter{
-	float: left;
-	padding-left: 120px;
-}
-
-.big{
-	font-size: 60px;
-}
-
-.middle{
-	font-size: 50px;
-}
-
-.grey{
-	color :grey;
-}
-
-.center{
-	text-align: center;
-}
-}
-
-/*---------------------------------------------------------*/
-
-@media screen and (min-device-width: 1024px) and (max-device-width: 1223px){
-	body{
-	background-image: url("http://einladung.berufsbildungscenter.ch/images/mainimage.jpg");
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-  background-size: cover;
-}
-
-h2{
-	font-weight: bold;
-	color: white;
-}
-
-h1{
-	font-weight: bold;
-	margin-bottom: 100px;
-	text-decoration: underline;
-}
-
-#container {
-	width:1024px;
-	margin: 0 auto;
-}
-
-#bright_side{
-	float:left;
-	width:400px;
-	border-right: 3px solid white;
-	margin-left: 110px;
-}
-
-#dark_side{
-	float:right;
-	width:400px;
-	margin-right: 110px;
-}
-
-#bright_header{
-	float: right;
-	height: 200px;
-	padding-right: 150px;
-}
-
-#dark_header{
-	height: 200px;
-	float: left;
-	padding-left: 150px;
-}
-
-#bright_side_statistic{
-	height: 550px;
-}
-
-#dark_side_statistic{
-	height: 550px;
-}
-
-#bright_counter{
-	float: right;
-	padding-right: 120px;
-}
-
-#dark_counter{
-	float: left;
-	padding-left: 120px;
-}
-
-.big{
-	font-size: 60px;
-}
-
-.middle{
-	font-size: 50px;
-}
-
-.grey{
-	color :grey;
-}
-
-.center{
-	text-align: center;
-}
-}
-
-/*---------------------------------------------------------------------*/
-
-@media screen and (min-device-width: px) and (max-device-width: px){
-	body{
-	background-image: url("http://einladung.berufsbildungscenter.ch/images/mainimage.jpg");
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-  background-size: cover;
-}
-
-h2{
-	font-weight: bold;
-	color: white;
-}
-
-h1{
-	font-weight: bold;
-	margin-bottom: 100px;
-	text-decoration: underline;
-}
-
-#container {
-	width:1800px;
-	margin: 0 auto;
-}
-
-#bright_side{
-	float:left;
-	width:400px;
-	border-right: 3px solid white;
-	margin-left: 497px;
-}
-
-#dark_side{
-	float:right;
-	width:400px;
-	margin-right: 500px;
-}
-
-#bright_header{
-	float: right;
-	height: 200px;
-	padding-right: 150px;
-}
-
-#dark_header{
-	height: 200px;
-	float: left;
-	padding-left: 150px;
-}
-
-#bright_side_statistic{
-	height: 550px;
-}
-
-#dark_side_statistic{
-	height: 550px;
-}
-
-#bright_counter{
-	float: right;
-	padding-right: 120px;
-}
-
-#dark_counter{
-	float: left;
-	padding-left: 120px;
-}
-
-.big{
-	font-size: 60px;
-}
-
-.middle{
-	font-size: 50px;
-}
-
-.grey{
-	color :grey;
-}
-
-.center{
-	text-align: center;
-}
-}
-
 
 =======
 /*lightsabers fomating*/
