@@ -68,7 +68,7 @@ class AdminController
 					$sideModel = new SideModel();
 					$amount = htmlspecialchars($_POST["amount"]);
 					$sideID = $sideModel->getSideID($_POST["side"]);
-					$pointModel->addPointsTo($sideID,$_SESSION["id"],$amount);
+					$pointModel->addPointsTo($_SESSION["id"],$sideID,$amount);
 				}
 			}
 		} else {
