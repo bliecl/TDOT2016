@@ -5,7 +5,7 @@ body{
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
-  background-size: cover;
+	background-size: cover;
 }
 
 h2{
@@ -540,7 +540,7 @@ h1{
 }
 
 #blueBlade, #redBlade{
-	height: 300px;
+	height: 148px;
 }
 
 #blueHandle{
@@ -550,10 +550,21 @@ h1{
 }
 
 #redHandle{
-	margin-left: 257.6px;
+	margin-left: 258px;
 	width: 37px;
 	height: 120px;
 }
 
+#placeholderBlueHandle, #placeholderRedHandle{
+	height: 446px;
+}
+
+#placeholderBlueBlade, #placeholderRedBlade{
+	height: 298px;
+}
+
+#placeholderBlueTip, #placeholderRedTip{
+	height: 268px;
+}
 /*end lightsabers*/
 >>>>>>> origin/master
