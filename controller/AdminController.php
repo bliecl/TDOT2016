@@ -7,7 +7,7 @@ class AdminController
 {
 	public function __construct()
 	{
-		$view = new View('adminHeader', array('title' => 'Startseite', 'heading' => 'Startseite'));
+		$view = new View('adminHeader', array('title' => 'Adminseite', 'heading' => 'Adminseite'));
 		$view->display();
 	}
 
