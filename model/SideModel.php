@@ -7,7 +7,7 @@ class SideModel extends Model
     protected $tableName = 'side';
 
     public function getSideID($side){
-      $query="SELECT id from side WHERE side=?";
+      $query="SELECT id from $this->tableName WHERE side=?";
       $statement = ConnectionHandler::getConnection()->prepare($query);
       $statement->bind_param('i',$side);
       $result = 0;

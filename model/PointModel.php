@@ -21,7 +21,7 @@ class PointModel extends Model
     }
 
     public function getPointsList($limit=50){
-      $query = "SELECT g.id,username,points,side,currentTime FROM game AS g JOIN user AS u ON g.user_id=u.id JOIN side AS s ON g.side_id=s.id ORDER BY currentTime DESC LIMIT ?";
+      $query = "SELECT g.id,username,points,side,currentTime FROM $this->tableName AS g JOIN user AS u ON g.user_id=u.id JOIN side AS s ON g.side_id=s.id ORDER BY currentTime DESC LIMIT ?";
       $rows = array();
       $statement = ConnectionHandler::getConnection()->prepare($query);
       $statement->bind_param('i',$limit);
@@ -42,7 +42,7 @@ class PointModel extends Model
     }
 
     public function deletePointRow($id){
-      $query = "DELETE FROM game WHERE id=?";
+      $query = "DELETE FROM $this->tableName WHERE id=?";
       $statement = ConnectionHandler::getConnection()->prepare($query);
       $statement->bind_param('i', $id);
 
@@ -52,7 +52,7 @@ class PointModel extends Model
     }
 
     public function addPointsTo($userID,$sideID,$amount){
-      $query ="INSERT INTO game (user_id,side_id,points) VALUES (?,?,?)";
+      $query ="INSERT INTO $this->tableName (user_id,side_id,points) VALUES (?,?,?)";
       $statement = ConnectionHandler::getConnection()->prepare($query);
       $statement->bind_param('iii', $userID, $sideID, $amount);
 
@@ -62,7 +62,7 @@ class PointModel extends Model
     }
 
     public function doesGameRowExist($id){
-      $query = "SELECT COUNT(*) AS `exists` FROM game WHERE id=?";
+      $query = "SELECT COUNT(*) AS `exists` FROM $this->tableName WHERE id=?";
       $statement = ConnectionHandler::getConnection()->prepare($query);
       $statement->bind_param('i', $id);
 
