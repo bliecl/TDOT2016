@@ -19,113 +19,156 @@ class AdminController
 
 	public function register()
 	{
-		$view = new View('register');
-		$view->display();
+		if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']){
+			$view = new View('register');
+			$view->display();
+		} else {
+			$view = new View('permissionDenied');
+			$view->display();
+		}
 	}
 
 	public function pointsTable(){
-		$view = new View('pointsTable');
-		$view->display();
+		if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']){
+			$view = new View('pointsTable');
+			$view->display();
+		} else {
+			$view = new View('permissionDenied');
+			$view->display();
+		}
 	}
 
 	public function addPoints(){
-		$view = new View('addPoints');
-		$view->display();
+		if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']){
+			$view = new View('addPoints');
+			$view->display();
+		} else {
+			$view = new View('permissionDenied');
+			$view->display();
+		}
 	}
 
 	public function deletePoints($id){
-		//TODO:: check if user is logged in
-		$pointModel = new PointModel();
-		if ($pointModel->doesGameRowExist($id)){
-			$pointModel->deletePointRow($id);
+		if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']){
+			$pointModel = new PointModel();
+			if ($pointModel->doesGameRowExist($id)){
+				$pointModel->deletePointRow($id);
+			}
+		} else {
+			$view = new View('permissionDenied');
+			$view->display();
 		}
 	}
 
 	public function addPointsTo(){
+<<<<<<< HEAD
 		if (isset($_POST["side"])){
-			if(isset($_POST["amount"]) && is_numeric($_POST["amount"])){
+			if(isset($_POST["amount"]) ){
 				if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"]==true){
 					$pointModel = new PointModel();
 					$sideModel = new SideModel();
 					$amount = htmlspecialchars($_POST["amount"]);
 					$sideID = $sideModel->getSideID($_POST["side"]);
 					$pointModel->addPointsTo($sideID,$_SESSION["id"],$amount);
+=======
+		if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']){
+			if (isset($_POST["side"])){
+				if(isset($_POST["amount"]) && is_numeric($_POST["amount"])){
+					$pointModel = new PointModel();
+					$sideModel = new SideModel();
+					$amount = htmlspecialchars($_POST["amount"]);
+					$sideID = $sideModel->getSideID($_POST["side"]);
+					$pointModel->addPointsTo($sideID,$_SESSION["id"],$amount);
+>>>>>>> origin/master
 				}
 			}
+		} else {
+			$view = new View('permissionDenied');
+			$view->display();
 		}
 		header('location:/admin/addPoints');
 	}
 
 	public function registerAction()
 	{
-		$check = false;
+		if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']){
+			$check = false;
 
-		if (empty($_POST ['password'])) {
-			$this->fail("register", "Passwort wird bennötigt! ");
-			$check1 = false;
-		}else{
-			$password = htmlspecialchars($_POST ['password']);
-			$check1 = true;
-		}
-
-		if (empty($_POST ['repeatpassword'])) {
-			$this->fail("register", "Passwort wiederholen! ");
-			$check2 = false;
-		}else{
-			$password2 = htmlspecialchars($_POST ['repeatpassword']);
-			$check2 = true;
-		}
-
-		if (empty($_POST ['name'])) {
-			$this->fail("register", "Name wird bennötigt!  ");
-			$check3 = false;
-		}else{
-			$name = htmlspecialchars($_POST ['name']);
-			$check3 = true;
-		}
-
-		if (empty($_POST ['prename'])) {
-			$this->fail("register", "Vorname wird bennötigt! ");
-			$check4 = false;
-		}else{
-			$prename = htmlspecialchars($_POST ['prename']);
-			$check4 = true;
-		}
-
-		if (empty($_POST ['username'])) {
-			$this->fail("register", "Username wird bennötigt! ");
-			$check5 = false;
-		}else{
-			$username = htmlspecialchars($_POST ['username']);
-			$check5 = true;
-		}
-
-		$userModel = new UserModel();
-		$users = $userModel->getUser($username);
-		if($users->id != null) {
-			$this->fail("register", "User existiert bereits! ");
-		} else {
-			if($password == $password2 && $check1 && $check2 && $check3 && $check4 && $check5) {
-				$userModel = new UserModel();
-				$user = $userModel->create($prename,$name,$username,$password);
-				header ( 'location: /admin/register' );
-			} else {
-				$this->fail("register", "Passwörter stimmen nicht überein! ");
+			if (empty($_POST ['password'])) {
+				$this->fail("register", "Passwort wird bennötigt! ");
+				$check1 = false;
+			}else{
+				$password = htmlspecialchars($_POST ['password']);
+				$check1 = true;
 			}
+
+			if (empty($_POST ['repeatpassword'])) {
+				$this->fail("register", "Passwort wiederholen! ");
+				$check2 = false;
+			}else{
+				$password2 = htmlspecialchars($_POST ['repeatpassword']);
+				$check2 = true;
+			}
+
+			if (empty($_POST ['name'])) {
+				$this->fail("register", "Name wird bennötigt!  ");
+				$check3 = false;
+			}else{
+				$name = htmlspecialchars($_POST ['name']);
+				$check3 = true;
+			}
+
+			if (empty($_POST ['prename'])) {
+				$this->fail("register", "Vorname wird bennötigt! ");
+				$check4 = false;
+			}else{
+				$prename = htmlspecialchars($_POST ['prename']);
+				$check4 = true;
+			}
+
+			if (empty($_POST ['username'])) {
+				$this->fail("register", "Username wird bennötigt! ");
+				$check5 = false;
+			}else{
+				$username = htmlspecialchars($_POST ['username']);
+				$check5 = true;
+			}
+
+			$userModel = new UserModel();
+			$users = $userModel->getUser($username);
+			if($users->id != null) {
+				$this->fail("register", "User existiert bereits! ");
+			} else {
+				if($password == $password2 && $check1 && $check2 && $check3 && $check4 && $check5) {
+					$userModel = new UserModel();
+					$user = $userModel->create($prename,$name,$username,$password);
+					header ( 'location: /admin/register' );
+				} else {
+					$this->fail("register", "Passwörter stimmen nicht überein! ");
+				}
+			}
+		} else {
+			$view = new View('permissionDenied');
+			$view->display();
 		}
 	}
 
 	public function fail($seite, $fehlermeldung)
 	{
-		if($seite == "register") {
-			$view = new View('register');
-			$view->fail = true;
-			$view->failText = $fehlermeldung;
-			$view->display();
-		} elseif ($seite == "login") {
-			$view = new View('login');
-			$view->fail = true;
-			$view->failText = $fehlermeldung;
+		if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']){
+			if($seite == "register") {
+				$view = new View('register');
+				$view->fail = true;
+				$view->failText = $fehlermeldung;
+				$view->display();
+			} elseif ($seite == "login") {
+				$view = new View('login');
+				$view->fail = true;
+				$view->failText = $fehlermeldung;
+				$view->display();
+			}
+		} else {
+			$view = new View('permissionDenied');
 			$view->display();
 		}
 	}
@@ -148,6 +191,9 @@ class AdminController
 				$_SESSION ['loggedin'] = true;
 				header ( 'location: /admin/addPoints' );
 			}
+		} else {
+			$view = new View('permissionDenied');
+			$view->display();
 		}
 	}
 
