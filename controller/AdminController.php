@@ -61,16 +61,6 @@ class AdminController
 	}
 
 	public function addPointsTo(){
-<<<<<<< HEAD
-		if (isset($_POST["side"])){
-			if(isset($_POST["amount"]) ){
-				if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"]==true){
-					$pointModel = new PointModel();
-					$sideModel = new SideModel();
-					$amount = htmlspecialchars($_POST["amount"]);
-					$sideID = $sideModel->getSideID($_POST["side"]);
-					$pointModel->addPointsTo($sideID,$_SESSION["id"],$amount);
-=======
 		if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']){
 			if (isset($_POST["side"])){
 				if(isset($_POST["amount"]) && is_numeric($_POST["amount"])){
@@ -79,7 +69,6 @@ class AdminController
 					$amount = htmlspecialchars($_POST["amount"]);
 					$sideID = $sideModel->getSideID($_POST["side"]);
 					$pointModel->addPointsTo($sideID,$_SESSION["id"],$amount);
->>>>>>> origin/master
 				}
 			}
 		} else {
