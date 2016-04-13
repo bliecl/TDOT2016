@@ -28,9 +28,16 @@
             echo '<td><form method="post" action="/admin/deletePoints/'.$id.'"><button id="delete'.$id.'" type="submit" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored deleteButton">
               <i class="material-icons">delete</i>
               </button></td>';
-            echo'<script>document.getElementById("delete'.$id.'").addEventListener("click", function(){
-            });</script>';
             //TODO: Implement EventListener to stay on page and remove row
+            echo'<script>document.getElementById("delete'.$id.'").addEventListener("click", function(evt){
+              evt.preventDefault();
+              $.ajax({
+                type:\'GET\',
+                url:\'/admin/deletePoints/'.$id.'\'
+              });
+              var element = document.getElementById("row'.$id.'");
+              element.parentNode.removeChild(element);
+            });</script>';
             echo'</tr>';
           }
         ?>

@@ -1,6 +1,7 @@
 <?php
 require_once('/model/UserModel.php');
 require_once('/model/PointModel.php');
+require_once('/model/UserModel.php');
 
 class AdminController
 {
@@ -40,7 +41,18 @@ class AdminController
 		}
 	}
 
-
+	public function addPointsTo(){
+		if (isset($_POST["side"])){
+			if(isset($_POST["amount"])){
+				if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"]==true){
+					$pointModel = new PointModel();
+					$sideModel = new SideModel();
+					$sideID = $sideModel->getSideID($_POST["side"]);
+					$pointModel->addPointsTo($sideID,$_SESSION["id"],$_POST["amount"]);
+				}
+			}
+		}
+	}
 
 	public function registerAction()
 	{
@@ -129,6 +141,7 @@ class AdminController
 			if ($result->num_rows == 1)
 			{
 				$row = $result->fetch_object();
+				$_SESSION ['id'] = $row->id;
 				$_SESSION ['username'] = $row->username;
 				$_SESSION ['loggedin'] = true;
 				echo 'login succesfull';
