@@ -37,7 +37,9 @@ class UserModel extends Model
     $query = "SELECT id, username from $this->tableName where username = ? and password = ?";
     $statement = ConnectionHandler::getConnection()->prepare($query);
     $statement->bind_param('ss', $username, $password);
-    $statement->execute();
+    if (!$statement->execute()) {
+        throw new Exception($statement->error);
+    }
     return $statement->get_result();
   }
 }

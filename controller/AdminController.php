@@ -40,8 +40,6 @@ class AdminController
 		}
 	}
 
-
-
 	public function registerAction()
 	{
 		$check = false;
@@ -108,7 +106,7 @@ class AdminController
 			$view->fail = true;
 			$view->failText = $fehlermeldung;
 			$view->display();
-		} else {
+		} elseif ($seite == "login") {
 			$view = new View('login');
 			$view->fail = true;
 			$view->failText = $fehlermeldung;
@@ -116,28 +114,32 @@ class AdminController
 		}
 	}
 
-	public function login(){
-		$view = new View('login');
-		$view->display();
-
+	public function login()
+	{
 		if (isset($_POST ["username"]))
 		{
 			$username = $_POST ["username"];
 			$password = $_POST ["password"];
 			$model = new UserModel();
 			$result = $model->getByUserAndPass($username, $password);
-			if ($result->num_rows == 1)
+			if ($result == null)
 			{
+				$this->fail("login", "Fehler beim Anmelden");
+			} else {
 				$row = $result->fetch_object();
 				$_SESSION ['username'] = $row->username;
 				$_SESSION ['loggedin'] = true;
-				echo 'login succesfull';
-
-			} else {
-				$this->fail("login", "Fehler beim Anmelden");
+				header ( 'location: /admin/addPoints' );
 			}
 		}
-		$view->display();
+	}
+
+	public function logout()
+	{
+		unset($_SESSION['loggedin']);
+		unset($_SESSION['username']);
+
+		header ( 'location: /admin/');
 	}
 
 	public function __destruct()

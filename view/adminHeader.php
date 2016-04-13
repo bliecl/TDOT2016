@@ -45,7 +45,7 @@
             echo $addPointsLink;
             echo $pointsTableLink;
           }
-          echo '<a class="mdl-navigation__link" href="#">Logout</a>';
+          echo '<a class="mdl-navigation__link" href="/admin/logout">Logout</a>';
           ?>
       </nav>
     </div>
