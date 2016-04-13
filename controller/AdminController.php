@@ -63,7 +63,7 @@ class AdminController
 	public function addPointsTo(){
 		if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']){
 			if (isset($_POST["side"])){
-				if(isset($_POST["amount"]) && is_numeric($_POST["amount"])){
+				if(isset($_POST["amount"]) && is_numeric($_POST["amount"]) && $_POST["amount"]>0){
 					$pointModel = new PointModel();
 					$sideModel = new SideModel();
 					$amount = htmlspecialchars($_POST["amount"]);
