@@ -10,7 +10,15 @@
 			</h2>
 		</div>
 		<div id="bright_side_statistic">
-
+			<div>
+				<img id="blueTip" src="/view/img/lightsaber/blue/tip.png" alt="blue tip">
+			</div>
+			<div>
+				<img id="blueBlade" src="/view/img/lightsaber/blue/blade.png" alt="blue blade">
+			</div>
+			<div>
+				<img id="blueHandle" src="/view/img/lightsaber/blue/handle.png" alt="blue handle">
+			</div>
 		</div>
 		<div>
 			<h2 id="bright_counter" class="middle">
@@ -25,7 +33,15 @@
 			</h2>
 		</div>
 		<div id="dark_side_statistic">
-
+			<div>
+				<img id="redTip" src="/view/img/lightsaber/red/tip.png" alt="red tip">
+			</div>
+			<div>
+				<img id="redBlade" src="/view/img/lightsaber/red/blade.png" alt="red blade">
+			</div>
+			<div>
+				<img id="redHandle" src="/view/img/lightsaber/red/handle.png" alt="red handle">
+			</div>
 		</div>
 		<div>
 			<h2 id="dark_counter" class="middle">

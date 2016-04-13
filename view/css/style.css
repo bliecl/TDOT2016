@@ -39,12 +39,10 @@ h1{
 
 #bright_header{
 	float: right;
-	height: 200px;
 	padding-right: 150px;
 }
 
 #dark_header{
-	height: 200px;
 	float: left;
 	padding-left: 150px;
 }
@@ -82,6 +80,7 @@ h1{
 .center{
 	text-align: center;
 }
+<<<<<<< HEAD
 
 /*------------------------------------------------------------------*/
 
@@ -521,3 +520,40 @@ h1{
 }
 
 
+=======
+/*lightsabers fomating*/
+
+#blueTip, #blueBlade, #redTip, #redBlade{
+	width: 50px;
+}
+
+#blueTip, #blueBlade{
+	margin-left: 150px;
+}
+
+#redTip, #redBlade{
+	margin-left: 250px;
+}
+
+#blueTip, #redTip{
+	height: 30px;
+}
+
+#blueBlade, #redBlade{
+	height: 300px;
+}
+
+#blueHandle{
+	margin-left: 157px;
+	width: 35px;
+	height: 120px;
+}
+
+#redHandle{
+	margin-left: 257.6px;
+	width: 37px;
+	height: 120px;
+}
+
+/*end lightsabers*/
+>>>>>>> origin/master
