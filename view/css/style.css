@@ -50,7 +50,6 @@ h1{
 }
 
 #bright_side_statistic{
-<<<<<<< HEAD
 	height: 50vh;
 	float: left;
 	padding-left: 40%;
@@ -60,31 +59,16 @@ h1{
 	height: 50vh;
 	float: right;
 	padding-right: 40%;
-=======
-	height: 550px;
-}
-
-#dark_side_statistic{
-	height: 550px;
->>>>>>> origin/master
 }
 
 #bright_counter{
 	float: right;
-<<<<<<< HEAD
 	padding-right: 6.25%;
-=======
-	padding-right: 120px;
->>>>>>> origin/master
 }
 
 #dark_counter{
 	float: left;
-<<<<<<< HEAD
 	padding-left: 6.25%;
-=======
-	padding-left: 120px;
->>>>>>> origin/master
 }
 
 .big{
@@ -103,11 +87,8 @@ h1{
 	text-align: center;
 }
 <<<<<<< HEAD
-<<<<<<< HEAD
 
 =======
-=======
->>>>>>> origin/master
 /*lightsabers fomating*/
 
 #blueTip, #blueBlade, #redTip, #redBlade{
@@ -127,7 +108,7 @@ h1{
 }
 
 #blueBlade, #redBlade{
-	height: 248px;
+	height: 148px;
 }
 
 #blueHandle{
@@ -147,11 +128,11 @@ h1{
 }
 
 #placeholderBlueBlade, #placeholderRedBlade{
-	height: 198px;
+	height: 298px;
 }
 
 #placeholderBlueTip, #placeholderRedTip{
-	height: 168px;
+	height: 268px;
 }
-
 /*end lightsabers*/
+>>>>>>> origin/master
