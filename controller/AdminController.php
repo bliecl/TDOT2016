@@ -1,13 +1,13 @@
 <?php
 require_once('/model/UserModel.php');
 require_once('/model/PointModel.php');
-require_once('/model/UserModel.php');
+require_once('/model/SideModel.php');
 
 class AdminController
 {
 	public function __construct()
 	{
-		$view = new View('adminHeader', array('title' => 'Startseite', 'heading' => 'Startseite'));
+		$view = new View('adminHeader', array('title' => 'Adminseite', 'heading' => 'Adminseite'));
 		$view->display();
 	}
 
@@ -63,19 +63,19 @@ class AdminController
 	public function addPointsTo(){
 		if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']){
 			if (isset($_POST["side"])){
-				if(isset($_POST["amount"])){
-					if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"]==true){
-						$pointModel = new PointModel();
-						$sideModel = new SideModel();
-						$sideID = $sideModel->getSideID($_POST["side"]);
-						$pointModel->addPointsTo($sideID,$_SESSION["id"],$_POST["amount"]);
-					}
+				if(isset($_POST["amount"]) && is_numeric($_POST["amount"])){
+					$pointModel = new PointModel();
+					$sideModel = new SideModel();
+					$amount = htmlspecialchars($_POST["amount"]);
+					$sideID = $sideModel->getSideID($_POST["side"]);
+					$pointModel->addPointsTo($sideID,$_SESSION["id"],$amount);
 				}
 			}
 		} else {
 			$view = new View('permissionDenied');
 			$view->display();
 		}
+		header('location:/admin/addPoints');
 	}
 
 	public function registerAction()
