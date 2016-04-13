@@ -6,7 +6,7 @@
 	<div id="bright_side">
 		<div id="bright_header">
 			<h2 class="middle">
-				Bright Side
+				Light Side
 			</h2>
 		</div>
 		<div id="bright_side_statistic">
