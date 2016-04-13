@@ -71,8 +71,6 @@
 				$("#dark_counter").html(dark + " Punkte");
 			});
 		},1000);
-
-
 	});
 
 </script>
