@@ -10,11 +10,16 @@
 			</h2>
 		</div>
 		<div id="bright_side_statistic">
-			<div>
-				<img id="blueTip" src="/view/img/lightsaber/blue/tip.png" alt="blue tip">
-			</div>
-			<div>
-				<img id="blueBlade" src="/view/img/lightsaber/blue/blade.png" alt="blue blade">
+			<div id="placeholderBlueHandle">
+				<div id="placeholderBlueBlade">
+					<div id="placeholderBlueTip"></div>
+					<div>
+						<img id="blueTip" src="/view/img/lightsaber/blue/tip.png" alt="blue tip">
+					</div>
+				</div>
+				<div>
+					<img id="blueBlade" src="/view/img/lightsaber/blue/blade.png" alt="blue blade">
+				</div>
 			</div>
 			<div>
 				<img id="blueHandle" src="/view/img/lightsaber/blue/handle.png" alt="blue handle">
@@ -33,11 +38,16 @@
 			</h2>
 		</div>
 		<div id="dark_side_statistic">
-			<div>
-				<img id="redTip" src="/view/img/lightsaber/red/tip.png" alt="red tip">
-			</div>
-			<div>
-				<img id="redBlade" src="/view/img/lightsaber/red/blade.png" alt="red blade">
+			<div id="placeholderRedHandle">
+				<div id="placeholderRedBlade">
+					<div id="placeholderRedTip"></div>
+					<div>
+						<img id="redTip" src="/view/img/lightsaber/red/tip.png" alt="red tip">
+					</div>
+				</div>
+				<div>
+					<img id="redBlade" src="/view/img/lightsaber/red/blade.png" alt="red blade">
+				</div>
 			</div>
 			<div>
 				<img id="redHandle" src="/view/img/lightsaber/red/handle.png" alt="red handle">

@@ -1,0 +1,43 @@
+#blueTip, #blueBlade, #redTip, #redBlade{
+	width: 50px;
+}
+
+#blueTip, #blueBlade{
+	margin-left: 150px;
+}
+
+#redTip, #redBlade{
+	margin-left: 250px;
+}
+
+#blueTip, #redTip{
+	height: 30px;
+}
+
+#blueBlade, #redBlade{
+	height: 148px;
+}
+
+#blueHandle{
+	margin-left: 157px;
+	width: 35px;
+	height: 120px;
+}
+
+#redHandle{
+	margin-left: 258px;
+	width: 37px;
+	height: 120px;
+}
+
+#placeholderBlueHandle, #placeholderRedHandle{
+	height: 446px;
+}
+
+#placeholderBlueBlade, #placeholderRedBlade{
+	height: 298px;
+}
+
+#placeholderBlueTip, #placeholderRedTip{
+	height: 268px;
+}
