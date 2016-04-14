@@ -45,7 +45,6 @@
           for="demo-menu-lower-right">';
 
 
-
           $registerLinkSmall = ' href="/admin/register">';
           $addPointsLinkSmall = ' href="/admin/addPoints">';
           $pointsTableLinkSmall = ' href="/admin/pointsTable">';
@@ -59,17 +58,19 @@
           $liStart = '<li class="mdl-menu__item"><a class="navigationLink ';
           $liEnd = '</a></li>';
 
-          if ($requested=="/admin/addPoints"){
-            echo $liStart . ' disabledLink">' . $addPointsEndSmall . $liEnd;
+          if ($_SESSION['admin'] == 0){
+          }
+          else if ($requested=="/admin/addPoints" && $_SESSION['admin'] == 1){
+            echo $liStart . ' disabledLink">'. $addPointsEndSmall . $liEnd;
             echo $liStart . '"' . $pointsTableLinkSmall . $pointsTableEndSmall . $liEnd;
             echo $liStart . '"' . $registerLinkSmall . $registerEndSmall . $liEnd;
           }
-          else if ($requested=="/admin/pointsTable"){
+          else if ($requested=="/admin/pointsTable" && $_SESSION['admin'] == 1){
             echo $liStart . '"' . $addPointsLinkSmall . $addPointsEndSmall . $liEnd;
-            echo $liStart . ' disabledLink">' . $pointsTableEndSmall . $liEnd;
+            echo $liStart .  ' disabledLink">' . $pointsTableEndSmall . $liEnd;
             echo $liStart . '"' . $registerLinkSmall . $registerEndSmall . $liEnd;
           }
-          else if ($requested=="/admin/register"){
+          else if ($requested=="/admin/register" && $_SESSION['admin'] == 1){
             echo $liStart . '"' . $addPointsLinkSmall . $addPointsEndSmall . $liEnd;
             echo $liStart . '"' . $pointsTableLinkSmall . $pointsTableEndSmall . $liEnd;
             echo $liStart . ' disabledLink">' . $registerEndSmall . $liEnd;
@@ -85,7 +86,10 @@
 
       <nav class="mdl-navigation mdl-layout--large-screen-only">
         <?php
-        $registerLink = '<a class="mdl-navigation__link" href="/admin/register">Register</a>';
+        $registerLink = null;
+        if($_SESSION['admin']){
+          $registerLink = '<a class="mdl-navigation__link" href="/admin/register">Register</a>';
+        }
         $addPointsLink = '<a class="mdl-navigation__link" href="/admin/addPoints">Punkte Hinzufügen</a>';
         $pointsTableLink = '<a class="mdl-navigation__link" href="/admin/pointsTable">Punkte Tabelle</a>';
 

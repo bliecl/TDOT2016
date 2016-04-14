@@ -123,12 +123,10 @@ class AdminController
 				$check5 = true;
 			}
 
-			if (empty($_POST ['admin'])) {
-				$this->fail("register", "Checkbox Admin aussfüllen! ");
-				$check6 = false;
-			}else{
-				$admin = htmlspecialchars($_POST ['admin']);
-				$check6 = true;
+			if(isset($_POST ['admin'])){
+				$admin = 1;
+			}else {
+				$admin = 0;
 			}
 
 			$userModel = new UserModel();
