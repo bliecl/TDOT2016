@@ -1,11 +1,6 @@
 <div class="mdl-grid">
   <div class="mdl-cell--0-offset-tablet mdl-cell--4-offset mdl-cell--0-offset-phone mdl-cell mdl-cell--4 mdl-cell--12-phone mdl-cell--12-tablet">
     <div class="container">
-      <div class="mdl-grid">
-        Registrieren ist nur für Standbetreiber gedacht.
-        <br>
-        Auf der Webseite kann man den Teams frei Punkte vergeben, daher ist sie nur für BBC-ler gedacht.
-      </div>
       <form method="post" action="/admin/registerAction">
         <div class="mdl-grid">
           <div class="mdl-textfield mdl-js-textfield">
@@ -36,6 +31,12 @@
             <input class="mdl-textfield__input" type="password" id="repeatpassword" name="repeatpassword" required>
             <label class="mdl-textfield__label" for="repeatpassword" id="repeatpasswordLabel">Passwort wiederholen</label>
           </div>
+        </div>
+        <div class="mdl-grid">
+          <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="admin">
+            <input type="checkbox" id="admin" name="admin" class="mdl-checkbox__input">
+            <span class="mdl-checkbox__label">Admin</span>
+          </label>
         </div>
         <div class="mdl-grid">
           <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
