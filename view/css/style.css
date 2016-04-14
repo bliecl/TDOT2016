@@ -87,38 +87,6 @@ h2{
 #dark_counter{
 	text-align: center;
 }
-/*lightsabers fomating
-#blueTip{
-width: 5vh;
-height: 3vh;
-}
-#blueBlade{
-width: 5vh;
-height: 30vh;
-}
-#blueHandle{
-width: 5vh;
-height: 18vh;
-}
-#redTip{
-width: 5vh;
-height: 3vh;
-}
-#redBlade{
-width: 5vh;
-height: 30vh;
-}
-#redHandle{
-width: 5vh;
-height: 18vh;
-}
-.float_left{
-float: left;
-}
-.float_right{
-float: right;
-}
-*/
 .lightsaberBlue {
 	position: relative;
 	/*transform: rotate(90deg);
@@ -264,8 +232,6 @@ float: right;
 	-webkit-filter: blur(1px);
 	-o-filter: blur(1px);
 	-ms-filter: blur(1px);
-	/*wichtig*/
-	height: 20vh;
 }
 
 .lightsaberRed .plasmaRed {
@@ -285,8 +251,6 @@ float: right;
 	-webkit-filter: blur(1px);
 	-o-filter: blur(1px);
 	-ms-filter: blur(1px);
-	/*wichtig*/
-	height: 20vh;
 }
 
 button:hover span:after {

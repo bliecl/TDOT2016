@@ -11,7 +11,7 @@
       <br>
       <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="bright">
         <input type="radio" id="bright" class="mdl-radio__button" name="side" value="bright">
-        <span class="mdl-radio__label">Bright Side</span>
+        <span class="mdl-radio__label">Light Side</span>
       </label>
       <br>
       <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="dark">

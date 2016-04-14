@@ -3,6 +3,8 @@ include_once('/model/PointModel.php');
 include_once('/model/SideModel.php');
 $sideModel = new SideModel();
 $pointModel = new PointModel();
+$bright = $pointModel->getPointsOfSide($sideModel->getSideID("bright"));
+$dark = $pointModel->getPointsOfSide($sideModel->getSideID("dark"));
 
 ?>
 <div class="container">
@@ -29,7 +31,7 @@ $pointModel = new PointModel();
 							<div class="lightsaberBlue">
 								<label for="obi-wan-example"></label>
 								<div class="switch"></div>
-								<div class="plasmaBlue obi-wan"></div>
+								<div id="bladeBlue" class="plasmaBlue obi-wan" style="height: <?php echo 44*$bright/($dark+$bright); ?>vh;"></div>
 							</div>
 						</div>
 					</div>
@@ -37,7 +39,7 @@ $pointModel = new PointModel();
 			</div>
 			<div class="mdl-grid">
 				<h2 id="bright_counter">
-					<?php echo $pointModel->getPointsOfSide($sideModel->getSideID("bright")." Punkte");?>
+					<?php echo $bright ?> Punkte
 				</h2>
 			</div>
 		</div>
@@ -57,7 +59,7 @@ $pointModel = new PointModel();
 						<div class="lightsaberRed">
 							<label for="darth-vader-example"></label>
 							<div class="switch"></div>
-							<div class="plasmaRed vader"></div>
+							<div id="bladeRed" class="plasmaRed vader" style="height: <?php echo 44*$dark/($dark+$bright); ?>vh;"></div>
 						</div>
 					</div>
 				</div>
@@ -65,7 +67,7 @@ $pointModel = new PointModel();
 		</div>
 		<div class="mdl-grid">
 			<h2 id="dark_counter">
-				<?php echo $pointModel->getPointsOfSide($sideModel->getSideID("dark")." Punkte");?>
+				<?php echo $dark ?> Punkte
 			</h2>
 		</div>
 	</div>
@@ -75,34 +77,20 @@ $pointModel = new PointModel();
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <script>
 $(document).ready(function(){
 	setInterval(function(){
 		$.getJSON("/stats/getCurrentStats").success(function (data) {
-			var bright = data["bright"];
-			var dark = data["dark"];
+			var bright = parseInt(data["bright"]);
+			var dark = parseInt(data["dark"]);
+			var biggest = dark > bright ? dark : bright;
+			percent1 = bright/(bright+dark);
+			percent2 = dark/(bright+dark);
 			$("#bright_counter").html(bright + " Punkte");
 			$("#dark_counter").html(dark + " Punkte");
+			$("#bladeBlue").height(44*(percent1)+"vh");
+			$("#bladeRed").height(44*(percent2)+"vh");
+
 		});
 	},1000);
 });
