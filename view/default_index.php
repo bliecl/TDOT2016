@@ -28,7 +28,6 @@ $pointModel = new PointModel();
 						<div class="example-item clearfix">
 							<div class="lightsaberBlue">
 								<label for="obi-wan-example"></label>
-								<input type="checkbox" id="obi-wan-example">
 								<div class="switch"></div>
 								<div class="plasmaBlue obi-wan"></div>
 							</div>
@@ -57,7 +56,6 @@ $pointModel = new PointModel();
 					<div class="example-item">
 						<div class="lightsaberRed">
 							<label for="darth-vader-example"></label>
-							<input type="checkbox" id="darth-vader-example">
 							<div class="switch"></div>
 							<div class="plasmaRed vader"></div>
 						</div>

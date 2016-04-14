@@ -40,6 +40,6 @@ class UserModel extends Model
     if (!$statement->execute()) {
         throw new Exception($statement->error);
     }
-    return $statement->get_result();
+    return $statement->get_result()->fetch_object();
   }
 }

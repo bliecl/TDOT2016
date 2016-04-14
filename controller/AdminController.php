@@ -164,7 +164,7 @@ class AdminController
 
 	public function login()
 	{
-		if (isset($_POST ["username"]))
+		if (isset($_POST["username"]) && isset($_POST["password"]))
 		{
 			$username = $_POST ["username"];
 			$password = $_POST ["password"];
@@ -174,9 +174,8 @@ class AdminController
 			{
 				$this->fail("login", "Fehler beim Anmelden");
 			} else {
-				$row = $result->fetch_object();
-				$_SESSION ['id'] = $row->id;
-				$_SESSION ['username'] = $row->username;
+				$_SESSION ['id'] = $result->id;
+				$_SESSION ['username'] = $result->username;
 				$_SESSION ['loggedin'] = true;
 				header ( 'location: /admin/addPoints' );
 			}
