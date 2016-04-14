@@ -144,20 +144,15 @@ class AdminController
 
 	public function fail($seite, $fehlermeldung)
 	{
-		if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']){
-			if($seite == "register") {
-				$view = new View('register');
-				$view->fail = true;
-				$view->failText = $fehlermeldung;
-				$view->display();
-			} elseif ($seite == "login") {
-				$view = new View('login');
-				$view->fail = true;
-				$view->failText = $fehlermeldung;
-				$view->display();
-			}
-		} else {
-			$view = new View('permissionDenied');
+		if($seite == "register") {
+			$view = new View('register');
+			$view->fail = true;
+			$view->failText = $fehlermeldung;
+			$view->display();
+		} elseif ($seite == "login") {
+			$view = new View('login');
+			$view->fail = true;
+			$view->failText = $fehlermeldung;
 			$view->display();
 		}
 	}
@@ -172,7 +167,7 @@ class AdminController
 			$result = $model->getByUserAndPass($username, $password);
 			if ($result == null)
 			{
-				$this->fail("login", "Fehler beim Anmelden");
+				$this->fail("login", "Falsche angaben! ");
 			} else {
 				$_SESSION ['id'] = $result->id;
 				$_SESSION ['username'] = $result->username;
@@ -180,8 +175,7 @@ class AdminController
 				header ( 'location: /admin/addPoints' );
 			}
 		} else {
-			$view = new View('permissionDenied');
-			$view->display();
+			$this->fail("login", "Fehler beim anmelden! ");
 		}
 	}
 

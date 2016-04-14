@@ -14,12 +14,19 @@
             <label class="mdl-textfield__label" for="password">Passwort</label>
           </div>
         </div>
-
         <div class="mdl-grid">
           <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
             login
           </button>
         </div>
+        <?php
+        if($this->fail == true) {
+          echo "
+          <div class=\"mdl-grid\">
+          <p id=\"fail\">$this->failText</p>
+          </div>";
+        }
+        ?>
       </form>
     </div>
   </div>

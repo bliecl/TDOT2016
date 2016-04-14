@@ -46,7 +46,7 @@
         if($this->fail == true) {
           echo "
           <div class=\"mdl-grid\">
-          <p id=\"fail\"> . $this->failText . </p>
+          <p id=\"fail\">$this->failText</p>
           </div>";
         }
         ?>
