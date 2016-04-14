@@ -76,5 +76,18 @@ class PointModel extends Model
       return false;
     }
 
+    public function getPointsOfSide($sideID){
+      $query = "SELECT SUM(points) AS allPoints FROM $this->tableName WHERE side_id=?";
+      $statement = ConnectionHandler::getConnection()->prepare($query);
+      $statement->bind_param('i', $sideID);
+
+      if (!$statement->execute()) {
+          throw new Exception($statement->error);
+      }else{
+        return $statement->get_result()->fetch_object()->allPoints;
+      }
+      return 0;
+    }
+
 
 }
