@@ -89,12 +89,16 @@ $(document).ready(function(){
 			if (dark==null){
 				dark=0;
 			}else{dark = parseInt(dark);}
-			percent1 = bright/(bright+dark);
-			percent2 = dark/(bright+dark);
 			$("#bright_counter").html(bright + " Punkte");
 			$("#dark_counter").html(dark + " Punkte");
-			$("#bladeBlue").height(44*(percent1)+"vh");
-			$("#bladeRed").height(44*(percent2)+"vh");
+			var sum = bright+dark;
+			if (sum==0){
+				bright=0.1;
+				dark=0.1;
+				sum=0.2;
+			}
+			$("#bladeBlue").height(44*bright/(sum)+"vh");
+			$("#bladeRed").height(44*dark/(sum)+"vh");
 
 		});
 	},1000);
