@@ -28,7 +28,7 @@ class UserModel extends Model
       $statement = ConnectionHandler::getConnection()->prepare($query);
       $statement->bind_param('s', $username);
       $statement->execute();
-      return $statement->get_result();
+      return $statement->get_result()->fetch_object()->id;
     }
 
     public function getByUserAndPass($username, $password)

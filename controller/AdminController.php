@@ -125,7 +125,7 @@ class AdminController
 
 			$userModel = new UserModel();
 			$users = $userModel->getUser($username);
-			if($users->id != null) {
+			if($users != null) {
 				$this->fail("register", "User existiert bereits! ");
 			} else {
 				if($password == $password2 && $check1 && $check2 && $check3 && $check4 && $check5) {

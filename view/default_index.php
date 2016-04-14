@@ -1,3 +1,10 @@
+<?php
+include_once('/model/PointModel.php');
+include_once('/model/SideModel.php');
+$sideModel = new SideModel();
+$pointModel = new PointModel();
+
+?>
 <div id="container">
 	<h1 class="grey center big">
 		The Space Battle
@@ -27,7 +34,7 @@
 		</div>
 		<div>
 			<h2 id="bright_counter" class="middle">
-				200 Punkte
+				<?php echo $pointModel->getPointsOfSide($sideModel->getSideID("bright")." Points");?>
 			</h2>
 		</div>
 	</div>
@@ -55,7 +62,7 @@
 		</div>
 		<div>
 			<h2 id="dark_counter" class="middle">
-				200 Punkte
+				<?php echo $pointModel->getPointsOfSide($sideModel->getSideID("dark"))." Points";?>
 			</h2>
 		</div>
 	</div>
