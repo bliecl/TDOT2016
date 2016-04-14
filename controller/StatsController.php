@@ -1,7 +1,7 @@
 <?php
-  require_once('/model/UserModel.php');
-  require_once('/model/PointModel.php');
-  require_once('/model/SideModel.php');
+  require_once('model/UserModel.php');
+  require_once('model/PointModel.php');
+  require_once('model/SideModel.php');
   class StatsController
   {
     public function getCurrentStats(){

@@ -4,7 +4,7 @@ require_once('lib/Model.php');
 
 class SideModel extends Model
 {
-    protected $tableName = 'side';
+    protected $tableName = 'Side';
 
     public function getSideID($side){
       $query="SELECT id from $this->tableName WHERE side=?";

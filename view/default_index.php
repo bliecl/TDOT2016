@@ -1,6 +1,6 @@
 <?php
-include_once('/model/PointModel.php');
-include_once('/model/SideModel.php');
+include_once('model/PointModel.php');
+include_once('model/SideModel.php');
 $sideModel = new SideModel();
 $pointModel = new PointModel();
 $bright = $pointModel->getPointsOfSide($sideModel->getSideID("bright"));

@@ -11,7 +11,7 @@
   </thead>
   <tbody>
     <?php
-      require_once('/model/PointModel.php');
+      require_once('model/PointModel.php');
       $pointModel = new PointModel();
       $list = $pointModel->getPointsList();
       foreach ($list as $row) {

@@ -21,7 +21,7 @@ class PointModel extends Model
     }
 
     public function getPointsList($limit=50){
-      $query = "SELECT g.id,username,points,side,currentTime FROM $this->tableName AS g JOIN user AS u ON g.user_id=u.id JOIN side AS s ON g.side_id=s.id ORDER BY currentTime DESC LIMIT ?";
+      $query = "SELECT g.id,username,points,side,currentTime FROM $this->tableName AS g JOIN User AS u ON g.user_id=u.id JOIN Side AS s ON g.side_id=s.id ORDER BY currentTime DESC LIMIT ?";
       $rows = array();
       $statement = ConnectionHandler::getConnection()->prepare($query);
       $statement->bind_param('i',$limit);
