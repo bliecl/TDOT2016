@@ -19,7 +19,7 @@ class AdminController
 
 	public function register()
 	{
-		if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] && $_SESSION['admin']){
+		if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] && isset($_SESSION['admin']) && $_SESSION['admin']){
 			$view = new View('register');
 			$view->display();
 		} else {
@@ -29,7 +29,7 @@ class AdminController
 	}
 
 	public function pointsTable(){
-		if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] && $_SESSION['admin']){
+		if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] && isset($_SESSION['admin']) && $_SESSION['admin']){
 			$view = new View('pointsTable');
 			$view->display();
 		} else {
@@ -49,7 +49,7 @@ class AdminController
 	}
 
 	public function deletePoints($id){
-		if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] && $_SESSION['admin']){
+		if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] && isset($_SESSION['admin']) && $_SESSION['admin']){
 			$pointModel = new PointModel();
 			if ($pointModel->doesGameRowExist($id)){
 				$pointModel->deletePointRow($id);
@@ -80,7 +80,7 @@ class AdminController
 
 	public function registerAction()
 	{
-		if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] && $_SESSION['admin']){
+		if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] && isset($_SESSION['admin']) && $_SESSION['admin']){
 			$check = false;
 
 			if (empty($_POST ['password'])) {
