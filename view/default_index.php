@@ -1,3 +1,10 @@
+<?php
+include_once('/model/PointModel.php');
+include_once('/model/SideModel.php');
+$sideModel = new SideModel();
+$pointModel = new PointModel();
+
+?>
 <div class="container">
 	<div class="mdl-grid">
 		<div class="mdl-cell mdl-cell--12-col">
@@ -31,7 +38,7 @@
 			</div>
 			<div class="mdl-grid">
 				<h2 id="bright_counter">
-					200 Punkte
+					<?php echo $pointModel->getPointsOfSide($sideModel->getSideID("bright")." Punkte");?>
 				</h2>
 			</div>
 		</div>
@@ -60,7 +67,7 @@
 		</div>
 		<div class="mdl-grid">
 			<h2 id="dark_counter">
-				200 Punkte
+				<?php echo $pointModel->getPointsOfSide($sideModel->getSideID("dark")." Punkte");?>
 			</h2>
 		</div>
 	</div>
