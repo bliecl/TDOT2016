@@ -19,7 +19,7 @@ class AdminController
 
 	public function register()
 	{
-		if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']){
+		if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] && $_SESSION['admin']){
 			$view = new View('register');
 			$view->display();
 		} else {
@@ -29,7 +29,7 @@ class AdminController
 	}
 
 	public function pointsTable(){
-		if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']){
+		if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] && $_SESSION['admin']){
 			$view = new View('pointsTable');
 			$view->display();
 		} else {
@@ -49,7 +49,7 @@ class AdminController
 	}
 
 	public function deletePoints($id){
-		if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']){
+		if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] && $_SESSION['admin']){
 			$pointModel = new PointModel();
 			if ($pointModel->doesGameRowExist($id)){
 				$pointModel->deletePointRow($id);
@@ -80,7 +80,7 @@ class AdminController
 
 	public function registerAction()
 	{
-		if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']){
+		if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] && $_SESSION['admin']){
 			$check = false;
 
 			if (empty($_POST ['password'])) {
@@ -123,6 +123,14 @@ class AdminController
 				$check5 = true;
 			}
 
+			if (empty($_POST ['admin'])) {
+				$this->fail("register", "Checkbox Admin aussfüllen! ");
+				$check6 = false;
+			}else{
+				$admin = htmlspecialchars($_POST ['admin']);
+				$check6 = true;
+			}
+
 			$userModel = new UserModel();
 			$users = $userModel->getUser($username);
 			if($users != null) {
@@ -130,7 +138,7 @@ class AdminController
 			} else {
 				if($password == $password2 && $check1 && $check2 && $check3 && $check4 && $check5) {
 					$userModel = new UserModel();
-					$user = $userModel->create($prename,$name,$username,$password);
+					$user = $userModel->create($prename,$name,$username,$password, $admin);
 					header ( 'location: /admin/register' );
 				} else {
 					$this->fail("register", "Passwörter stimmen nicht überein! ");
@@ -172,6 +180,7 @@ class AdminController
 				$_SESSION ['id'] = $result->id;
 				$_SESSION ['username'] = $result->username;
 				$_SESSION ['loggedin'] = true;
+				$_SESSION ['admin'] = $result->admin;
 				header ( 'location: /admin/addPoints' );
 			}
 		} else {

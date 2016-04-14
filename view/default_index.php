@@ -81,9 +81,14 @@ $dark = $pointModel->getPointsOfSide($sideModel->getSideID("dark"));
 $(document).ready(function(){
 	setInterval(function(){
 		$.getJSON("/stats/getCurrentStats").success(function (data) {
-			var bright = parseInt(data["bright"]);
-			var dark = parseInt(data["dark"]);
-			var biggest = dark > bright ? dark : bright;
+			var bright = data["bright"];
+			var dark = data["dark"];
+			if (bright==null){
+				bright=0;
+			}else{bright = parseInt(bright);}
+			if (dark==null){
+				dark=0;
+			}else{dark = parseInt(dark);}
 			percent1 = bright/(bright+dark);
 			percent2 = dark/(bright+dark);
 			$("#bright_counter").html(bright + " Punkte");
