@@ -92,37 +92,29 @@ h2{
 width: 5vh;
 height: 3vh;
 }
-
 #blueBlade{
 width: 5vh;
 height: 30vh;
 }
-
 #blueHandle{
 width: 5vh;
 height: 18vh;
 }
-
-
 #redTip{
 width: 5vh;
 height: 3vh;
 }
-
 #redBlade{
 width: 5vh;
 height: 30vh;
 }
-
 #redHandle{
 width: 5vh;
 height: 18vh;
 }
-
 .float_left{
 float: left;
 }
-
 .float_right{
 float: right;
 }
