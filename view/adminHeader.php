@@ -111,5 +111,5 @@
     </nav>
   </div>
 </header>
-<main class="mdl-layout__content">
+<main id="mainPage" class="mdl-layout__content">
   <div class="page-content">

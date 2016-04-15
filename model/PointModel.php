@@ -41,6 +41,48 @@ class PointModel extends Model
       return $rows;
     }
 
+    public function getNewerList($newestID){
+      $query = "SELECT g.id,username,points,side,currentTime FROM $this->tableName AS g JOIN User AS u ON g.user_id=u.id JOIN Side AS s ON g.side_id=s.id WHERE g.id>? ORDER BY currentTime ASC";
+      $rows = array();
+      $statement = ConnectionHandler::getConnection()->prepare($query);
+      $statement->bind_param('i',$newestID);
+      if ($statement->execute()) {
+        $result = $statement->get_result();
+        while ($row = $result->fetch_object()) {
+         $found = array(
+             "id" => $row->id,
+             "username" => $row->username,
+             "side" => $row->side,
+             "points" => $row->points,
+             "currentTime" => $row->currentTime
+         );
+         $rows[] = $found;
+        }
+      }
+      return $rows;
+    }
+
+    public function getOlderList($oldestID,$limit=50){
+      $query = "SELECT g.id,username,points,side,currentTime FROM $this->tableName AS g JOIN User AS u ON g.user_id=u.id JOIN Side AS s ON g.side_id=s.id WHERE g.id<? ORDER BY currentTime DESC LIMIT ?";
+      $rows = array();
+      $statement = ConnectionHandler::getConnection()->prepare($query);
+      $statement->bind_param('ii',$oldestID,$limit);
+      if ($statement->execute()) {
+        $result = $statement->get_result();
+        while ($row = $result->fetch_object()) {
+         $found = array(
+             "id" => $row->id,
+             "username" => $row->username,
+             "side" => $row->side,
+             "points" => $row->points,
+             "currentTime" => $row->currentTime
+         );
+         $rows[] = $found;
+        }
+      }
+      return $rows;
+    }
+
     public function deletePointRow($id){
       $query = "DELETE FROM $this->tableName WHERE id=?";
       $statement = ConnectionHandler::getConnection()->prepare($query);

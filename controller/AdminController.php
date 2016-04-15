@@ -173,7 +173,7 @@ class AdminController
 			$result = $model->getByUserAndPass($username, $password);
 			if ($result == null)
 			{
-				$this->fail("login", "Falsche angaben! ");
+				$this->fail("login", "Falsche Angaben! ");
 			} else {
 				$_SESSION ['id'] = $result->id;
 				$_SESSION ['username'] = $result->username;
@@ -182,7 +182,7 @@ class AdminController
 				header ( 'location: /admin/addPoints' );
 			}
 		} else {
-			$this->fail("login", "Fehler beim anmelden! ");
+			$this->fail("login", "Fehler beim Anmelden! ");
 		}
 	}
 

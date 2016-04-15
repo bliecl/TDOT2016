@@ -12,6 +12,18 @@
       $stats["dark"] = $pointModel->getPointsOfSide($sideModel->getSideID("dark"));
       echo json_encode($stats,JSON_PRETTY_PRINT);
     }
+
+    public function getNewerList($newestID = 1000000){
+      $pointModel = new PointModel();
+      $list = $pointModel->getNewerList($newestID);
+      echo json_encode($list,JSON_PRETTY_PRINT);
+    }
+
+    public function getOlderList($oldestID = 1){
+      $pointModel = new PointModel();
+      $list = $pointModel->getOlderList($oldestID);
+      echo json_encode($list,JSON_PRETTY_PRINT);
+    }
   }
 
  ?>
